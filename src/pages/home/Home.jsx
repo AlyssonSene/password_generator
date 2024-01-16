@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import "./Home.css";
 
 const HomePage = () => {
   const [newPass, setNewPass] = useState("");
   const [passLength, setPassLength] = useState("6");
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const passGenerator = () => {
     let generatedPass = "";
@@ -23,14 +25,18 @@ const HomePage = () => {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(newPass);
-      console.log("Senha copiada para a área de transferência!");
+      setShowTooltip(true);
+
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 2000); // Esconde o tooltip após 2 segundos
     } catch (err) {
       console.error("Erro ao copiar a senha:", err);
     }
   };
 
   return (
-    <div>
+    <div className="homePage">
       <h1>Bem vindo ao meu gerador de senhas</h1>
       <p>
         Utilize esse gerador para criar uma senha forte e segura para suas
@@ -56,8 +62,18 @@ const HomePage = () => {
         max={32}
       />
       <h4>Quantidade de caracteres: {passLength}</h4>
-      <button onClick={copyToClipboard}>Copiar senha</button>
-      <button onClick={passGenerator}>Gerar nova</button>
+      {showTooltip && newPass !== "" && (
+        <span className="tooltip">Copiado</span>
+      )}
+      <div>
+        <button className="button" onClick={copyToClipboard}>
+          Copiar senha
+        </button>
+
+        <button className="button" onClick={passGenerator}>
+          Gerar nova
+        </button>
+      </div>
     </div>
   );
 };
