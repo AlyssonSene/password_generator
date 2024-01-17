@@ -1,22 +1,13 @@
 import styled from "styled-components";
 
-// export const StyledButton = styled.button`
-//   background-color: #039962;
-//   border: none;
-//   color: #fff;
-//   padding: 10px 20px;
-//   text-align: center;
-//   text-decoration: none;
-//   font-size: 16px;
-//   cursor: pointer;
-//   border-radius: 10px;
-//   margin: 10px;
-//   width: 200px;
-
-//   &:hover {
-//     background-color: #025536;
-//   }
-// `;
+export const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  width: 40px;
+`;
 
 export const StyledMain = styled.main`
   max-width: 780px;
@@ -38,16 +29,18 @@ export const StyledTitle = styled.text`
 
 export const StyledSubtitle = styled.text`
   font-size: 1.125rem;
-  color: #828282;
+  color: #706f6f;
 `;
 
 export const StyledBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   background: #ffff;
-  box-shadow: 1px 1px 2px rgba(132, 148, 165, 0.8);
-  border-radius: 8px;
-  margin-bottom: 3rem;
+  box-shadow: 0 0 5px 1px rgba(132, 148, 165, 0.8);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  padding: 0 10px;
 `;
 
 export const StyledInput = styled.input`
@@ -64,4 +57,27 @@ export const StyledInput = styled.input`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`;
+
+export const StyledBoxButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 18%;
+`;
+
+export const StyledSecurityBox = styled.div`
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+`;
+
+export const StyledSecurityBar = styled.div`
+  height: 10px;
+  background-color: #c70d0d;
+
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: all 0.2s;
 `;

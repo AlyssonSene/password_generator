@@ -3,7 +3,14 @@ import Input from "../atoms/Input";
 import Range from "../atoms/RangeButton";
 import Tooltip from "../atoms/Tooltip";
 import Button from "../atoms/Button";
-import { StyledBox } from "../../styles/styles";
+import copyIcon from "../../assets/duplicate.svg";
+import refresIcon from "../../assets/refresh.svg";
+import {
+  StyledBox,
+  StyledBoxButtons,
+  StyledSecurityBox,
+  StyledSecurityBar,
+} from "../../styles/styles";
 
 const PasswordGenerator = () => {
   const [newPass, setNewPass] = useState("");
@@ -15,7 +22,7 @@ const PasswordGenerator = () => {
     const chars =
       "abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()[]{}<>?";
 
-    for (var i = 0; i <= passLength; i += 1) {
+    for (var i = 0; i < passLength; i += 1) {
       let random = Math.floor(Math.random() * chars.length);
       generatedPass += chars.substring(random, random + 1);
     }
@@ -24,7 +31,6 @@ const PasswordGenerator = () => {
 
   const changPassLength = (value) => {
     setPassLength(value);
-    passGenerator();
   };
 
   const copyToClipboard = async () => {
@@ -52,14 +58,19 @@ const PasswordGenerator = () => {
           value={newPass}
           readOnly
         />
-
-        <div>
-          <div className="button-group">
-            <Button onClick={copyToClipboard}>C</Button>
-            <Button onClick={passGenerator}>F</Button>
-          </div>
-        </div>
+        <StyledBoxButtons>
+          <Button onClick={copyToClipboard} className={"copy"}>
+            <img src={copyIcon} alt="copy pass" />
+          </Button>
+          <Button onClick={passGenerator} className={"refresh"}>
+            <img src={refresIcon} alt="refresh pass" />
+          </Button>
+        </StyledBoxButtons>
       </StyledBox>
+
+      <StyledSecurityBox>
+        <StyledSecurityBox></StyledSecurityBox>
+      </StyledSecurityBox>
 
       <Range
         min={6}
