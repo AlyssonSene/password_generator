@@ -1,7 +1,8 @@
 import React from "react";
+import { StyledInput } from "../../styles/styles";
 
 const Input = ({ type, name, id, value, readOnly, onChange }) => (
-  <input
+  <StyledInput
     type={type}
     name={name}
     id={id}

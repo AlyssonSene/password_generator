@@ -3,6 +3,7 @@ import Input from "../atoms/Input";
 import Range from "../atoms/RangeButton";
 import Tooltip from "../atoms/Tooltip";
 import Button from "../atoms/Button";
+import { StyledBox } from "../../styles/styles";
 
 const PasswordGenerator = () => {
   const [newPass, setNewPass] = useState("");
@@ -42,14 +43,24 @@ const PasswordGenerator = () => {
   };
 
   return (
-    <div className="passwordGenerator">
-      <Input
-        type="text"
-        name="input password"
-        id="inputPass"
-        value={newPass}
-        readOnly
-      />
+    <section>
+      <StyledBox>
+        <Input
+          type="text"
+          name="input password"
+          id="inputPass"
+          value={newPass}
+          readOnly
+        />
+
+        <div>
+          <div className="button-group">
+            <Button onClick={copyToClipboard}>C</Button>
+            <Button onClick={passGenerator}>F</Button>
+          </div>
+        </div>
+      </StyledBox>
+
       <Range
         min={6}
         max={32}
@@ -62,11 +73,7 @@ const PasswordGenerator = () => {
       <Tooltip show={showTooltip} className="copied">
         Copiado
       </Tooltip>
-      <div className="button-group">
-        <Button onClick={copyToClipboard}>Copiar senha</Button>
-        <Button onClick={passGenerator}>Gerar nova</Button>
-      </div>
-    </div>
+    </section>
   );
 };
 
