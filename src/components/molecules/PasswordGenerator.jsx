@@ -69,18 +69,32 @@ const PasswordGenerator = () => {
       </StyledBox>
 
       <StyledSecurityBox>
-        <StyledSecurityBox></StyledSecurityBox>
+        <StyledSecurityBar strength="weak" id="securityBar"></StyledSecurityBar>
       </StyledSecurityBox>
 
-      <Range
-        min={6}
-        max={32}
-        value={passLength}
-        onChange={(e) => changPassLength(e.target.value)}
-        name="password length"
-        id="passLength"
-      />
-      <h4>Quantidade de caracteres: {passLength}</h4>
+      <div>
+        <h3>Personalizar</h3>
+        <h4>Quantidade de caracteres: {passLength}</h4>
+        <Range
+          min={6}
+          max={32}
+          value={passLength}
+          onChange={(e) => changPassLength(e.target.value)}
+          name="password length"
+          id="passLength"
+        />
+
+        <div>
+          <input type="checkbox" name="uppercase" />
+          <span>Maiúsculas</span>
+
+          <input type="checkbox" name="numbers" />
+          <span>Números</span>
+
+          <input type="checkbox" name="simbols" />
+          <span>Símbolos</span>
+        </div>
+      </div>
       <Tooltip show={showTooltip} className="copied">
         Copiado
       </Tooltip>

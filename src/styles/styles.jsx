@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
   background-color: transparent;
@@ -37,7 +37,7 @@ export const StyledBox = styled.div`
   justify-content: center;
   align-items: center;
   background: #ffff;
-  box-shadow: 0 0 5px 1px rgba(132, 148, 165, 0.8);
+  box-shadow: 0 0 1px 1px rgba(132, 148, 165, 0.8);
   border-radius: 10px;
   margin-bottom: 1.5rem;
   padding: 0 10px;
@@ -73,11 +73,44 @@ export const StyledSecurityBox = styled.div`
   margin-bottom: 15px;
 `;
 
-export const StyledSecurityBar = styled.div`
+const normalStyles = css`
   height: 10px;
-  background-color: #c70d0d;
-
   border-radius: 8px;
   margin-bottom: 15px;
   transition: all 0.2s;
+`;
+
+const warningStyles = css`
+  background-color: #e7b50e;
+`;
+
+const safeStyles = css`
+  background-color: #03a103;
+`;
+
+const criticalStyles = css`
+  background-color: #c70d0d;
+`;
+
+const completeStyles = css`
+  background-color: #03a103;
+`;
+
+export const StyledSecurityBar = styled.div`
+  ${normalStyles}
+
+  ${({ strength }) => {
+    switch (strength) {
+      case "complete":
+        return completeStyles;
+      case "strong":
+        return safeStyles;
+      case "medium":
+        return warningStyles;
+      case "weak":
+        return criticalStyles;
+      default:
+        return normalStyles;
+    }
+  }}
 `;
