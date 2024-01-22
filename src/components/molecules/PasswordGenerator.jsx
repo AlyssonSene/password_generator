@@ -10,7 +10,14 @@ import {
   StyledBoxButtons,
   StyledSecurityBox,
   StyledSecurityBar,
+  StyledTitleConfig,
+  StyledConfig,
+  StyledLengthPass,
+  StyledCheckbox,
+  StyledBoxConfig,
 } from "../../styles/styles";
+import CheckboxInput from "../atoms/Checkbox";
+import Title from "../atoms/Title";
 
 const PasswordGenerator = () => {
   const [newPass, setNewPass] = useState("");
@@ -58,10 +65,12 @@ const PasswordGenerator = () => {
           value={newPass}
           readOnly
         />
+
         <StyledBoxButtons>
           <Button onClick={copyToClipboard} className={"copy"}>
             <img src={copyIcon} alt="copy pass" />
           </Button>
+
           <Button onClick={passGenerator} className={"refresh"}>
             <img src={refresIcon} alt="refresh pass" />
           </Button>
@@ -72,9 +81,15 @@ const PasswordGenerator = () => {
         <StyledSecurityBar strength="weak" id="securityBar"></StyledSecurityBar>
       </StyledSecurityBox>
 
-      <div>
-        <h3>Personalizar</h3>
-        <h4>Quantidade de caracteres: {passLength}</h4>
+      <StyledTitleConfig>
+        <Title level={"3"} text={"Personalizar"} />
+      </StyledTitleConfig>
+
+      <StyledLengthPass>
+        <Title level={"4"} text={`Quantidade de caracteres: ${passLength}`} />
+      </StyledLengthPass>
+
+      <StyledConfig>
         <Range
           min={6}
           max={32}
@@ -83,18 +98,12 @@ const PasswordGenerator = () => {
           name="password length"
           id="passLength"
         />
-
-        <div>
-          <input type="checkbox" name="uppercase" />
-          <span>Maiúsculas</span>
-
-          <input type="checkbox" name="numbers" />
-          <span>Números</span>
-
-          <input type="checkbox" name="simbols" />
-          <span>Símbolos</span>
-        </div>
-      </div>
+        <StyledBoxConfig>
+          <CheckboxInput name={"uppercases"} label={"Maiúsculas"} />
+          <CheckboxInput name={"numbers"} label={"Números"} />
+          <CheckboxInput name={"symbols"} label={"Símbolos"} />
+        </StyledBoxConfig>
+      </StyledConfig>
       <Tooltip show={showTooltip} className="copied">
         Copiado
       </Tooltip>

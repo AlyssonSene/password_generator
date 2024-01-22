@@ -1,7 +1,9 @@
 import React from "react";
+import { StyledSlider } from "../../styles/styles";
+
 
 const Range = ({ min, max, value, onChange, name, id }) => (
-  <input
+  <StyledSlider
     type="range"
     name={name}
     id={id}
