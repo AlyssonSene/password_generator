@@ -13,7 +13,7 @@ Este é um simples gerador de senhas online que permite gerar senhas fortes e se
 - A barra de força da mostra a força da senha gerada de acordo com as configurações escolhidas.
 
 ## Caso queira utilizar é só acessar o link abaixo:
-<a=“[http://exemplo.com/](https://aspasswordgenerator.web.app/)“>Gerador de senhas</a
+<a href="https://aspasswordgenerator.web.app/">Gerador de Senhas</a>
 
 ## Tecnologias Utilizadas
 
