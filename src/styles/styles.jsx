@@ -61,7 +61,7 @@ export const StyledInput = styled.input`
 
 export const StyledBoxButtons = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   align-items: center;
   width: 18%;
 `;
@@ -131,6 +131,7 @@ export const StyledConfig = styled.div`
   display: flex;
   gap: 3rem;
   color: #6e6e6e;
+  margin-bottom: 1.5rem;
 `;
 
 export const StyledLengthPass = styled.div`

@@ -3,7 +3,6 @@ import Input from "../atoms/Input";
 import Range from "../atoms/RangeButton";
 import Button from "../atoms/Button";
 import refresIcon from "../../assets/refresh.svg";
-import copyIcon from "../../assets/duplicate.svg";
 import {
   StyledBox,
   StyledBoxButtons,
@@ -17,6 +16,7 @@ import {
 } from "../../styles/styles";
 import CheckboxInput from "../atoms/Checkbox";
 import Title from "../atoms/Title";
+import Tooltip from "../atoms/Tooltip";
 
 const PasswordGenerator = () => {
   const [newPass, setNewPass] = useState("");
@@ -26,6 +26,7 @@ const PasswordGenerator = () => {
   const [symbolsChecked, setSymbolsChecked] = useState(true);
   const [level, setPassLevel] = useState("");
   const [strength, setPassStrength] = useState("");
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const passGenerator = useCallback(() => {
     let generatedPass = "";
@@ -92,7 +93,11 @@ const PasswordGenerator = () => {
     try {
       if (newPass) {
         await navigator.clipboard.writeText(newPass);
-        setTimeout(() => {}, 2000);
+        setShowTooltip(true);
+
+        setTimeout(() => {
+          setShowTooltip(false);
+        }, 2000);
       }
     } catch (err) {
       console.error("Erro ao copiar a senha:", err);
@@ -168,6 +173,7 @@ const PasswordGenerator = () => {
           Copiar
         </button>
       </StyledCopyButton>
+      <Tooltip show={showTooltip} children={"Copiado"} className="copied" />
     </section>
   );
 };
