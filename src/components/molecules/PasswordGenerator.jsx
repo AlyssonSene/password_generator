@@ -111,9 +111,6 @@ const PasswordGenerator = () => {
         />
 
         <StyledBoxButtons>
-          <Button onClick={copyToClipboard} className={"copy"}>
-            <img src={copyIcon} alt="copy pass" />
-          </Button>
           <Button onClick={passGenerator} className={"refresh"}>
             <img src={refresIcon} alt="refresh pass" />
           </Button>
