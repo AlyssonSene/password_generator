@@ -21,13 +21,13 @@ export const StyledSection = styled.section`
   padding-bottom: 3rem;
 `;
 
-export const StyledTitle = styled.text`
+export const StyledTitle = styled.h1`
   font-size: 2rem;
   font-weight: bold;
   padding-bottom: 1.5rem;
 `;
 
-export const StyledSubtitle = styled.text`
+export const StyledSubtitle = styled.h2`
   font-size: 1.125rem;
   color: #706f6f;
 `;
@@ -77,7 +77,7 @@ const normalStyles = css`
   height: 10px;
   border-radius: 8px;
   margin-bottom: 15px;
-  transition: all 0.2s;
+  transition: all 0.3s;
 `;
 
 const warningStyles = css`
@@ -98,9 +98,10 @@ const completeStyles = css`
 
 export const StyledSecurityBar = styled.div`
   ${normalStyles}
+  width: ${({ width }) => width}%;
 
-  ${({ strength }) => {
-    switch (strength) {
+  ${({ level }) => {
+    switch (level) {
       case "complete":
         return completeStyles;
       case "strong":
@@ -129,7 +130,7 @@ export const StyledTitleConfig = styled.div`
 export const StyledConfig = styled.div`
   display: flex;
   gap: 3rem;
-  color: #828282;
+  color: #6e6e6e;
 `;
 
 export const StyledLengthPass = styled.div`
@@ -146,13 +147,18 @@ export const StyledSlider = styled.input`
   outline: none;
   border-radius: 10px;
   width: 100%;
-  opacity: 0.6;
   margin-top: 1rem;
   cursor: pointer;
+
+  & {
+    opacity: 0.7;
+    transition: opacity 0.8s ease-in-out;
+  }
+
   &:hover {
     opacity: 1;
-    transition: linear 0.3s;
   }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -182,11 +188,11 @@ export const StyledSpan = styled.span`
   left: 0;
   height: 20px;
   width: 20px;
-  background: #dddddd;
+  background: #c9c7c7;
   transition: all 0.2s;
 
   &:hover {
-    background-color: #cccccc;
+    background-color: #afafaf;
   }
 
   &::after {
@@ -237,5 +243,23 @@ export const StyledCheckbox = styled.label`
       content: "";
       display: block;
     }
+  }
+`;
+
+export const StyledCopyButton = styled.div`
+  text-align: center;
+  & > button {
+    background-color: #bb6bd9;
+    font-size: 1.2rem;
+    width: 30%;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    transition: all 0.2s;
+  }
+  :hover {
+    background-color: #9b51e0;
   }
 `;

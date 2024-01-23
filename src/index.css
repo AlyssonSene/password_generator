@@ -4,7 +4,7 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(216, 56%, 98%);
+  background-color: whitesmoke;
   color: #252525;
   padding: 2rem !important;
   font-weight: bold;
