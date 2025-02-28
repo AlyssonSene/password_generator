@@ -276,6 +276,6 @@ export const StyledCopyButton = styled.div`
     transition: all 0.2s;
   }
   :hover {
-    background-color: #9b51e0;
+    background-color: #0c16a5;
   }
 `;
