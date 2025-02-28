@@ -10,7 +10,7 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: criar arquivo .en
+      - name: criar arquivo .env
       - run: |
           echo "REACT_APP_API_KEY=${{ vars.REACT_APP_API_KEY }}" >> .env
           echo "REACT_APP_API_AUTH=${{ vars.REACT_APP_API_AUTH }}" >> .env
@@ -19,7 +19,7 @@ jobs:
           echo "REACT_APP_API_MESSAGE_SENDER_ID=${{ vars.REACT_APP_API_MESSAGE_SENDER_ID }}" >> .env
           echo "REACT_APP_API_APP_ID=${{ vars.REACT_APP_API_APP_ID }}" >> .env
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      - run: yarn ci && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
