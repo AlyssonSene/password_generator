@@ -1,26 +1,26 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Input from "../atoms/Input";
-import Range from "../atoms/RangeButton";
-import Button from "../atoms/Button";
 import refresIcon from "../../assets/refresh.svg";
 import {
   StyledBox,
   StyledBoxButtons,
-  StyledSecurityBox,
-  StyledSecurityBar,
-  StyledTitleConfig,
-  StyledConfig,
-  StyledLengthPass,
   StyledBoxConfig,
+  StyledConfig,
   StyledCopyButton,
+  StyledLengthPass,
+  StyledSecurityBar,
+  StyledSecurityBox,
+  StyledTitleConfig,
 } from "../../styles/styles";
+import Button from "../atoms/Button";
 import CheckboxInput from "../atoms/Checkbox";
+import Input from "../atoms/Input";
+import Range from "../atoms/RangeButton";
 import Title from "../atoms/Title";
 import Tooltip from "../atoms/Tooltip";
 
 const PasswordGenerator = () => {
   const [newPass, setNewPass] = useState("");
-  const [passLength, setPassLength] = useState("6");
+  const [passLength, setPassLength] = useState("8");
   const [uppercasesChecked, setUppercasesChecked] = useState(true);
   const [numbersChecked, setNumbersChecked] = useState(true);
   const [symbolsChecked, setSymbolsChecked] = useState(true);
@@ -48,25 +48,29 @@ const PasswordGenerator = () => {
 
     setNewPass(generatedPass);
 
+    const minPassLength = 8;
+    const maxPassLength = 25;
+
+    let adjustedLength = Math.max(passLength - minPassLength, 5);
+
     let strength = Math.round(
-      (passLength / 32) * 25 +
-        (uppercasesChecked ? 20 : 0) +
-        (numbersChecked ? 25 : 0) +
-        (symbolsChecked ? 30 : 0)
+      (adjustedLength / (maxPassLength - minPassLength)) * 40 +
+        (uppercasesChecked ? 15 : 0) +
+        (numbersChecked ? 20 : 0) +
+        (symbolsChecked ? 25 : 0)
     );
 
     let level = "weak";
 
     if (strength > 100) strength = 100;
 
-    if (strength >= 35) level = "medium";
-
+    if (strength >= 30) level = "medium";
     if (strength >= 55) level = "strong";
-
-    if (strength >= 70) level = "complete";
+    if (strength >= 80) level = "complete";
 
     setPassLevel(level);
     setPassStrength(strength);
+    console.log(passLength);
   }, [numbersChecked, passLength, symbolsChecked, uppercasesChecked]);
 
   useEffect(() => {
@@ -140,8 +144,8 @@ const PasswordGenerator = () => {
 
       <StyledConfig>
         <Range
-          min={6}
-          max={32}
+          min={8}
+          max={25}
           value={passLength}
           onChange={(e) => changPassLength(e)}
           name="password length"

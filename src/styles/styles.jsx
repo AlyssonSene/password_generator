@@ -7,6 +7,11 @@ export const StyledButton = styled.button`
   opacity: 0.7;
   transition: opacity 0.2s;
   width: 40px;
+  @media (max-width: 425px) {
+    & img {
+      width: 20px;
+    }
+  }
 `;
 
 export const StyledMain = styled.main`
@@ -46,7 +51,7 @@ export const StyledBox = styled.div`
 export const StyledInput = styled.input`
   font-family: "Inconsolata", serif;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border: none;
   outline: none;
   cursor: default;
@@ -57,13 +62,14 @@ export const StyledInput = styled.input`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  @media (max-width: 425px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const StyledBoxButtons = styled.div`
   display: flex;
-  justify-content: end;
   align-items: center;
-  width: 18%;
 `;
 
 export const StyledSecurityBox = styled.div`
@@ -125,6 +131,9 @@ export const StyledTitleConfig = styled.div`
   & > h3 {
     font-weight: bold;
   }
+  @media (max-width: 425px) {
+    text-align: center;
+  }
 `;
 
 export const StyledConfig = styled.div`
@@ -132,12 +141,19 @@ export const StyledConfig = styled.div`
   gap: 3rem;
   color: #6e6e6e;
   margin-bottom: 1.5rem;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StyledLengthPass = styled.div`
   display: flex;
   justify-content: flex-start;
   margin-bottom: 1rem;
+  @media (max-width: 425px) {
+    justify-content: center;
+  }
 `;
 
 export const StyledSlider = styled.input`
@@ -252,7 +268,6 @@ export const StyledCopyButton = styled.div`
   & > button {
     background-color: #bb6bd9;
     font-size: 1.2rem;
-    width: 30%;
     color: white;
     border: none;
     border-radius: 10px;
