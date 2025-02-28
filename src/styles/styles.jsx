@@ -182,7 +182,7 @@ export const StyledSlider = styled.input`
     width: 18px;
     height: 18px;
     border-radius: 18px;
-    background: #9b51e0;
+    background: #202cdd;
     cursor: pointer;
   }
 
@@ -190,7 +190,7 @@ export const StyledSlider = styled.input`
     width: 18px;
     height: 18px;
     border-radius: 18px;
-    background: #9b51e0;
+    background: #202cdd;
     cursor: pointer;
   }
 `;
@@ -253,7 +253,7 @@ export const StyledCheckbox = styled.label`
     cursor: pointer;
 
     &:checked + ${StyledSpan} {
-      background-color: #9b51e0;
+      background-color: #202cdd;
     }
 
     &:checked + ${StyledSpan}::after {
@@ -266,7 +266,7 @@ export const StyledCheckbox = styled.label`
 export const StyledCopyButton = styled.div`
   text-align: center;
   & > button {
-    background-color: #bb6bd9;
+    background-color: #202cdd;
     font-size: 1.2rem;
     color: white;
     border: none;
