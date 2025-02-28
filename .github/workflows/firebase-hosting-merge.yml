@@ -19,7 +19,7 @@ jobs:
           echo "REACT_APP_API_MESSAGE_SENDER_ID=${{ vars.REACT_APP_API_MESSAGE_SENDER_ID }}" >> .env
           echo "REACT_APP_API_APP_ID=${{ vars.REACT_APP_API_APP_ID }}" >> .env
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      - run: yarn ci && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
